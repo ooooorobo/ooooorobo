@@ -18,8 +18,6 @@
 
 ## 🐙 My GitHub Stats
 
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ooooorobo&layout=compact&hide=html" alt="Top Langs"/>
 <img src="https://github-readme-stats.vercel.app/api?username=ooooorobo&count_private=true&show_icons=true" alt="Yejin's GitHub stats" />
 
 
