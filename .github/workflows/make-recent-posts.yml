@@ -1,0 +1,30 @@
+on:
+  repository_dispatch:
+    types: [recent_post]
+
+jobs:
+  make_recent_posts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: make readme
+        env:
+          POSTS: ${{ github.event.posts }}
+        run: node .github/make-readme.js
+
+      - name: Commit and push if changed
+        run: |-
+          git diff
+          git config --global user.email "orobos654@gmail.com"
+          git config --global user.name "ooooorobo"
+          git add -u
+          git commit -m "Update recent post" || exit 0
+          git push
